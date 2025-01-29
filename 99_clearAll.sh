@@ -8,5 +8,6 @@ read -p "Press any key to continue... " -n1 -s
 rm -rf rm *.tfplan
 rm -rf rm *.tfstate
 
+echo "All resources are cleared"
 
 # End of script
