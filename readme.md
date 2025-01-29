@@ -5,9 +5,9 @@
 |-------------------------|------|-----------|----------|---------------|------------------|-----|
 | main.tf                | x    | x         | x        | x             | x                | x   |
 | az_monitor.tf          | x    | x         | x        | x             | x                | x   |
-| az_sentinel.tf         |      |           | x        |               |                  |     |
 | az_ssh_key.tf          | x    | x         |          | x             |                  | x   |
 | az_vnet.tf             | x    | x         |          | x             |                  | x   |
+| az_sentinel.tf         |      |           | x        |               |                  |     |
 | az_linux_vm.tf         | x    | x         |          |               | x                | x   |
 | az_linux_jumphost.tf   |      |           |          |               |                  |     |
 | az_routetable.tf       |      |           |          | x             |                  |     |
