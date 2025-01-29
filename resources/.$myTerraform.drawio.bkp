@@ -5,7 +5,7 @@
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="DaKFa5Kbx9uWsQDAohir-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="10" y="230" width="690" height="470" as="geometry" />
+          <mxGeometry x="10" y="230" width="1030" height="550" as="geometry" />
         </mxCell>
         <mxCell id="DaKFa5Kbx9uWsQDAohir-2" value="10.0.0.0/16" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="150" y="200" width="80" height="30" as="geometry" />
@@ -23,7 +23,7 @@
           <mxGeometry x="425" y="280" width="220" height="220" as="geometry" />
         </mxCell>
         <mxCell id="DaKFa5Kbx9uWsQDAohir-7" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="170" y="550" width="220" height="130" as="geometry" />
+          <mxGeometry x="170" y="550" width="220" height="210" as="geometry" />
         </mxCell>
         <mxCell id="DaKFa5Kbx9uWsQDAohir-8" value="Azure Firewall Subnet 10.0.100.0/24&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="170" y="520" width="220" height="30" as="geometry" />
@@ -38,10 +38,10 @@
           <mxGeometry x="50" y="458" width="64" height="62" as="geometry" />
         </mxCell>
         <mxCell id="DaKFa5Kbx9uWsQDAohir-11" value="log analytics" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/analytics/Log_Analytics_Workspaces.svg;" parent="1" vertex="1">
-          <mxGeometry x="40" y="740" width="64" height="64" as="geometry" />
+          <mxGeometry x="40" y="800" width="64" height="64" as="geometry" />
         </mxCell>
         <mxCell id="DaKFa5Kbx9uWsQDAohir-12" value="PostgreSQL Flex" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/databases/Azure_Database_PostgreSQL_Server.svg;" parent="1" vertex="1">
-          <mxGeometry x="160" y="740" width="48" height="64" as="geometry" />
+          <mxGeometry x="160" y="800" width="48" height="64" as="geometry" />
         </mxCell>
         <mxCell id="DaKFa5Kbx9uWsQDAohir-13" value="Workload" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/VM_Linux.svg;" parent="1" vertex="1">
           <mxGeometry x="255" y="350" width="50" height="46" as="geometry" />
@@ -51,6 +51,21 @@
         </mxCell>
         <mxCell id="DaKFa5Kbx9uWsQDAohir-15" value="Proxy" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/VM_Linux.svg;" parent="1" vertex="1">
           <mxGeometry x="515" y="410" width="50" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="gS0KEHWhO_-ok8fZvNKi-1" value="AKS 10.0.10.0/24" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="425" y="520" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gS0KEHWhO_-ok8fZvNKi-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="425" y="550" width="220" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="gS0KEHWhO_-ok8fZvNKi-3" value="AKS" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/containers/Kubernetes_Services.svg;" vertex="1" parent="1">
+          <mxGeometry x="506" y="625" width="68" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gS0KEHWhO_-ok8fZvNKi-4" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="280" width="220" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="gS0KEHWhO_-ok8fZvNKi-5" value="privateendpoint 10.0.3.0/24" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="680" y="250" width="170" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

@@ -72,7 +72,7 @@ resource "azurerm_firewall_policy_rule_collection_group" "app_policy_rule_collec
 }
 
 resource "azurerm_firewall" "fw" {
-  name                = "azfw"
+  name                = "fw-${random_pet.rg_name.id}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   sku_name            = "AZFW_VNet"

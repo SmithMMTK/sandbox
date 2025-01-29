@@ -18,7 +18,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "default" {
 
 
 resource "azurerm_postgresql_flexible_server" "psflexserver" {
-  name = "${random_pet.rg_name.id}"
+  name = "pq-${random_pet.rg_name.id}"
     resource_group_name = azurerm_resource_group.rg.name
     location = azurerm_resource_group.rg.location
     administrator_login = "psqladmin"
