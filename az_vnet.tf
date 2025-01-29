@@ -19,7 +19,7 @@ variable "workload_subnet" {
   
 }
 
-variable "wrokload_address_prefix" {
+variable "workload_address_prefix" {
   type        = string
   default     = "10.0.1.0/24"
   description = "The address prefix to use for the subnet."
@@ -66,7 +66,7 @@ resource "azurerm_subnet" "workload" {
     name = "${var.workload_subnet}-${var.resource_group_name_prefix}-${random_pet.rg_name.id}"
     resource_group_name = azurerm_resource_group.rg.name
     virtual_network_name = azurerm_virtual_network.vnet.name
-    address_prefixes = [var.wrokload_address_prefix]
+    address_prefixes = [var.workload_address_prefix]
 
 }
 

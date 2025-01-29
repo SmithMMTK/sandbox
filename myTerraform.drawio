@@ -1,0 +1,58 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.9 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="26.0.9">
+  <diagram name="Page-1" id="2CaHUNN9MHWzc7x0fVJu">
+    <mxGraphModel dx="1434" dy="807" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="DaKFa5Kbx9uWsQDAohir-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="10" y="230" width="690" height="470" as="geometry" />
+        </mxCell>
+        <mxCell id="DaKFa5Kbx9uWsQDAohir-2" value="10.0.0.0/16" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="150" y="200" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DaKFa5Kbx9uWsQDAohir-3" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="170" y="280" width="220" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="DaKFa5Kbx9uWsQDAohir-4" value="workload 10.0.1.0/24" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="170" y="250" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DaKFa5Kbx9uWsQDAohir-5" value="jumphost 10.0.2.0/24" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="425" y="250" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DaKFa5Kbx9uWsQDAohir-6" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="425" y="280" width="220" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="DaKFa5Kbx9uWsQDAohir-7" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="170" y="550" width="220" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="DaKFa5Kbx9uWsQDAohir-8" value="Azure Firewall Subnet 10.0.100.0/24&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="170" y="520" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DaKFa5Kbx9uWsQDAohir-9" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Azure_Firewall_Policy.svg;" parent="1" vertex="1">
+          <mxGeometry x="232" y="590.34" width="68" height="49.32" as="geometry" />
+        </mxCell>
+        <mxCell id="rgLwlHopBtlB1MzYajcf-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="DaKFa5Kbx9uWsQDAohir-10" target="DaKFa5Kbx9uWsQDAohir-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DaKFa5Kbx9uWsQDAohir-10" value="route table&lt;div&gt;0.0.0.0 -&amp;gt; AzFw&lt;/div&gt;" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Route_Tables.svg;" parent="1" vertex="1">
+          <mxGeometry x="50" y="458" width="64" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="DaKFa5Kbx9uWsQDAohir-11" value="log analytics" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/analytics/Log_Analytics_Workspaces.svg;" parent="1" vertex="1">
+          <mxGeometry x="40" y="740" width="64" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="DaKFa5Kbx9uWsQDAohir-12" value="PostgreSQL Flex" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/databases/Azure_Database_PostgreSQL_Server.svg;" parent="1" vertex="1">
+          <mxGeometry x="160" y="740" width="48" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="DaKFa5Kbx9uWsQDAohir-13" value="Workload" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/VM_Linux.svg;" parent="1" vertex="1">
+          <mxGeometry x="255" y="350" width="50" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="DaKFa5Kbx9uWsQDAohir-14" value="Jumphost" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/VM_Linux.svg;" parent="1" vertex="1">
+          <mxGeometry x="515" y="310" width="50" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="DaKFa5Kbx9uWsQDAohir-15" value="Proxy" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/VM_Linux.svg;" parent="1" vertex="1">
+          <mxGeometry x="515" y="410" width="50" height="46" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -57,4 +57,6 @@ rm -f /tmp/private_key.pem
 
 az monitor diagnostic-settings categories list --resource "/subscriptions/d120e7d7-41e4-4ea7-b07d-ea9c11db2118/resourceGroups/rg-master-penguin/providers/Microsoft.ContainerService/managedClusters/cluster-content-ewe"
 
+az monitor diagnostic-settings categories list  --resource "/subscriptions/d120e7d7-41e4-4ea7-b07d-ea9c11db2118/resourceGroups/rg-sought-pheasant/providers/Microsoft.Network/azureFirewalls/azfw"
+
 ```

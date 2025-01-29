@@ -1,4 +1,4 @@
-output "RESOURCE_GROUP_NAME" {
-  value = azurerm_resource_group.rg.name
-}
+## Intended to be empty, move all output to module .tf file
+
+
 

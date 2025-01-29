@@ -29,7 +29,7 @@ output "SSH_PRIVATE_KEY" {
 
 # Create public IPs
 resource "azurerm_public_ip" "my_terraform_public_ip" {
-  name                = "myPublicIP"
+  name                = "workloadPublicIP"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   allocation_method   = "Dynamic"
@@ -69,7 +69,7 @@ resource "azurerm_network_interface" "my_terraform_nic" {
 }
 
 # Connect the security group to the network interface
-resource "azurerm_network_interface_security_group_association" "example" {
+resource "azurerm_network_interface_security_group_association" "workloadSecurityGroup" {
   network_interface_id      = azurerm_network_interface.my_terraform_nic.id
   network_security_group_id = azurerm_network_security_group.my_terraform_nsg.id
 }
@@ -102,7 +102,7 @@ resource "azurerm_linux_virtual_machine" "my_terraform_vm" {
   size                  = "Standard_D8ads_v5"
 
   os_disk {
-    name                 = "myOsDisk"
+    name                 = "workloadOsDisk"
     caching              = "ReadWrite"
     storage_account_type = "Premium_LRS"
   }
