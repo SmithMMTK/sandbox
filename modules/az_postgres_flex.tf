@@ -4,7 +4,6 @@ resource "random_password" "pqPwd" {
   override_special = "_%@"
 }
 
-
 resource "azurerm_private_dns_zone" "default" {
   name                = "privatelink.postgres.database.azure.com"
   resource_group_name = azurerm_resource_group.rg.name
@@ -33,8 +32,30 @@ resource "azurerm_postgresql_flexible_server" "psflexserver" {
     //depends_on = [azurerm_private_dns_zone_virtual_network_link.default]
 }
 
+# Get current client IP address
+data "http" "current" {
+  url = "http://ifconfig.me"
+}
+
+# Add current client IP address to the Postgres Flexible Server firewall
+resource "azurerm_postgresql_flexible_server_firewall_rule" "client_ip" {
+  name                = "AllowClientIP"
+  server_id = azurerm_postgresql_flexible_server.psflexserver.id
+  start_ip_address    = data.http.current.body
+  end_ip_address      = data.http.current.body
+}
+
+# Output the client IP address
+output "client_ip" {
+  value = data.http.current.body
+}
+
 output "psql_flex_server_name" {
   value = azurerm_postgresql_flexible_server.psflexserver.name
+}
+
+output "psql_flex_server_fqdn" {
+  value = azurerm_postgresql_flexible_server.psflexserver.fully_qualified_domain_name
 }
 
 output "administrator_login" {
