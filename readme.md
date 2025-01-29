@@ -1,62 +1,30 @@
 
-### Run command
+
+### Combination of based / modules
+| File                    | Base | Single VM | Sentinel | AzFw with UDR | App and Postgres | AKS |
+|-------------------------|------|-----------|----------|---------------|------------------|-----|
+| main.tf                | x    | x         | x        | x             | x                | x   |
+| az_monitor.tf          | x    | x         | x        | x             | x                | x   |
+| az_sentinel.tf         |      |           | x        |               |                  |     |
+| az_ssh_key.tf          | x    | x         |          | x             |                  | x   |
+| az_vnet.tf             | x    | x         |          | x             |                  | x   |
+| az_linux_vm.tf         | x    | x         |          |               | x                | x   |
+| az_linux_jumphost.tf   |      |           |          |               |                  |     |
+| az_routetable.tf       |      |           |          | x             |                  |     |
+| az_firewall.tf         |      |           |          | x             |                  |     |
+| az_postgres_flex.tf    |      |           |          |               | x                |     |
+| az_aks.tf              |      |           |          |               |                  | x   |
+
+
+- 00_deploy.sh : Initialize terraform, Plan and Apply
+- 01_increamental_deploy.sh : Increamental Update and Deploy
+- 02_connect_workload.sh : Get SSH Key and Connect to Workload VM
+- 03_connect_jumphost.sh : Get SSH Key and Connect to Jumphost VM
+- 04_connect_proxy.sh : Get SSH Key and Connect to Proxy VM
+- 05_connect_aks.sh : Connect to AKS
+- 99_clearAll.sh : Delete all resources and .tfstage file
+
 ```bash
-terraform init
-terraform plan -out main.tfplan
-terraform apply main.tfplan
-
-```
-
-### AKS cheat sheet
-```bash
-resource_group_name=$(terraform output -raw resource_group_name)
-az aks list --resource-group $resource_group_name --query "[].{\"K8s cluster name\":name}" --output table
-
-echo "$(terraform output kube_config)" > ./azurek8s
-cat ./azurek8s
-
-aks_cluster_name=$(az aks list --resource-group $resource_group_name --query "[0].name" -o tsv)
-
-az aks get-credentials --resource-group $resource_group_name --name $aks_cluster_name
-
-kubectl get nodes
-kubectl run nodejs-shell --image=node:23 -it --rm --restart=Never -- bash
-## install required tools via apt
-```
-
-
-
-### PostgreSQL cheat sheet
-```bash
-terraform output -raw psql_admin_password
-
-### Clearn up resources
-terraform plan -destroy -out main.destroy.tfplan
-terraform apply main.destroy.tfplan
-
-sp=$(terraform output -raw sp)
-az ad sp delete --id $sp
-
-```
-
-### Azure VM cheat sheet
-```bash
-
-export SSH_PRIVATE_KEY="$(terraform output -raw private_key)"
-export SSH_PUBLIC_IP="$(terraform output -raw public_ip_address)"
-echo "$SSH_PRIVATE_KEY" > /tmp/private_key.pem
-chmod 600 /tmp/private_key.pem
-ssh -i /tmp/private_key.pem azureuser@"$SSH_PUBLIC_IP"
-
-rm -f /tmp/private_key.pem
-
-```
-
-### Azure Monitor cheat sheet
-```bash
-
-az monitor diagnostic-settings categories list --resource "/subscriptions/d120e7d7-41e4-4ea7-b07d-ea9c11db2118/resourceGroups/rg-master-penguin/providers/Microsoft.ContainerService/managedClusters/cluster-content-ewe"
-
-az monitor diagnostic-settings categories list  --resource "/subscriptions/d120e7d7-41e4-4ea7-b07d-ea9c11db2118/resourceGroups/rg-sought-pheasant/providers/Microsoft.Network/azureFirewalls/azfw"
-
+### Get Private Key from terraform output
+terraform output -raw SSH_PRIVATE_KEY
 ```
