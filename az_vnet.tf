@@ -55,6 +55,12 @@ variable "privateendpoint_address_prefix" {
   
 }
 
+variable "bastion_address_prefix" {
+  type        = string
+  default     = "10.0.4.0/24"
+  
+}
+
 # Create Virtual Network and Subnet by using prefix from vnet variable and resource_group name from random_pet resource
 
 resource "azurerm_virtual_network" "vnet" {
@@ -101,4 +107,12 @@ resource "azurerm_subnet" "privateendpoint" {
     resource_group_name = azurerm_resource_group.rg.name
     virtual_network_name = azurerm_virtual_network.vnet.name
     address_prefixes = [var.privateendpoint_address_prefix]
+}
+
+resource "azurerm_subnet" "bastionsubnet" {
+    name = "AzureBastionSubnet"
+    resource_group_name = azurerm_resource_group.rg.name
+    virtual_network_name = azurerm_virtual_network.vnet.name
+    address_prefixes = [var.bastion_address_prefix]
+  
 }
