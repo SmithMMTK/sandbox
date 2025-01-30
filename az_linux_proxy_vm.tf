@@ -76,7 +76,7 @@ resource "azurerm_linux_virtual_machine" "my_proxy_vm" {
     version   = "latest"
   }
 
-  computer_name  = "jumphost"
+  computer_name  = "proxy"
   admin_username = "azureuser"
 
   admin_ssh_key {
