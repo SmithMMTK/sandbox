@@ -90,6 +90,20 @@ resource "azurerm_linux_virtual_machine" "my_proxy_vm" {
   }
 }
 
+  resource "azurerm_virtual_machine_extension" "proxy_custom_script" {
+    name                = "proxy_custom_script"
+    virtual_machine_id  = azurerm_linux_virtual_machine.my_terraform_vm.id
+    publisher           = "Microsoft.Azure.Extensions"
+    type                = "CustomScript"
+    type_handler_version = "2.1"
+
+    settings = jsonencode({
+      "fileUris": ["https://raw.githubusercontent.com/SmithMMTK/terraform/refs/heads/main/scripts/proxy_scripts.sh"],
+      "commandToExecute": "sh proxy_scripts.sh"
+    })
+
+}
+
 # Output the IP address of the VM
 output "PUBLIC_IP_ADDRESS_PROXY" {
   //value = azurerm_linux_virtual_machine.my_terraform_vm.public_ip_address
