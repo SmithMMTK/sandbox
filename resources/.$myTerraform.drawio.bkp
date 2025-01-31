@@ -220,7 +220,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="OYROzEeYuyUO46xQVyg8-30" value="Internet" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="OYROzEeYuyUO46xQVyg8-30" value="Internet or Proxy" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="-50.00000000000001" y="351" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="OYROzEeYuyUO46xQVyg8-31" value="Private Endpoint" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">

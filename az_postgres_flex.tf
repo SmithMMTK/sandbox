@@ -54,9 +54,6 @@ output "psql_flex_server_name" {
   value = azurerm_postgresql_flexible_server.psflexserver.name
 }
 
-output "psql_flex_server_fqdn" {
-  value = azurerm_postgresql_flexible_server.psflexserver.fully_qualified_domain_name
-}
 
 output "administrator_login" {
   value = azurerm_postgresql_flexible_server.psflexserver.administrator_login

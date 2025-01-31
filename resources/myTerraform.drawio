@@ -436,7 +436,7 @@
         <mxCell id="OYROzEeYuyUO46xQVyg8-86" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1" source="OYROzEeYuyUO46xQVyg8-84" target="OYROzEeYuyUO46xQVyg8-83">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="OYROzEeYuyUO46xQVyg8-87" value="*.monitor.azure.com" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" vertex="1" connectable="0" parent="OYROzEeYuyUO46xQVyg8-86">
+        <mxCell id="OYROzEeYuyUO46xQVyg8-87" value="*.monitor.azure.com&lt;br&gt;*.opinsights.azure.com" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" vertex="1" connectable="0" parent="OYROzEeYuyUO46xQVyg8-86">
           <mxGeometry x="-0.07" y="-2" relative="1" as="geometry">
             <mxPoint x="1" as="offset" />
           </mxGeometry>
