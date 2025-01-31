@@ -109,3 +109,7 @@ output "PUBLIC_IP_ADDRESS_PROXY" {
   //value = azurerm_linux_virtual_machine.my_terraform_vm.public_ip_address
     value = azurerm_linux_virtual_machine.my_proxy_vm.public_ip_address
 }
+
+output "PROXY_VM_VNET_IP" {
+  value = azurerm_network_interface.my_proxy_nic.private_ip_address
+}

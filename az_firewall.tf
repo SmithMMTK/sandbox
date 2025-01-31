@@ -55,7 +55,25 @@ resource "azurerm_firewall_policy_rule_collection_group" "net_policy_rule_collec
     }
   }
 
+    nat_rule_collection {
+    name     = "DefaultNatRuleCollection"
+    priority = 300
+    action   = "Dnat"
+    rule {
+      name                  = "DNAT"
+      translated_address  = azurerm_network_interface.my_proxy_nic.private_ip_address
+      translated_port     = 22
+      source_addresses     = ["*"]
+      destination_address = azurerm_public_ip.pip_azfw.ip_address
+      destination_ports    = ["22"]
+      protocols            = ["TCP"]
+
+    }
+    }
+
 }
+
+
 
 resource "azurerm_firewall_policy_rule_collection_group" "app_policy_rule_collection_group" {
   name               = "DefaulApplicationtRuleCollectionGroup"
@@ -131,6 +149,10 @@ resource "azurerm_firewall_policy_rule_collection_group" "app_policy_rule_collec
 
 }
 
+
+
+
+
 resource "azurerm_firewall" "fw" {
   name                = "fw-${random_pet.rg_name.id}"
   location            = azurerm_resource_group.rg.location
@@ -146,6 +168,9 @@ resource "azurerm_firewall" "fw" {
 }
 
 
+output "FWPUBLICIP" {
+  value = azurerm_public_ip.pip_azfw.ip_address
+} 
 
 resource "azurerm_monitor_diagnostic_setting" "azfw_diagnostic" {
   name = "azfw-diagnostic"
