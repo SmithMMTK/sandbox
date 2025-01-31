@@ -1,2 +1,2 @@
 hostname && uptime
-apt update -y 
+sudo apt update -y 
