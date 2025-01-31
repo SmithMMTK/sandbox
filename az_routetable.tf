@@ -19,8 +19,13 @@ resource "azurerm_route_table" "routeTable" {
 }
 }
 
-resource "azurerm_subnet_route_table_association" "routeTableAssociation" {
+resource "azurerm_subnet_route_table_association" "workload_routeTableAssociation" {
   subnet_id      = azurerm_subnet.workload.id
   route_table_id = azurerm_route_table.routeTable.id
 
+}
+
+resource "azurerm_subnet_route_table_association" "proxy_routeTableAssociation" {
+  subnet_id      = azurerm_subnet.proxysubnet.id
+  route_table_id = azurerm_route_table.routeTable.id
 }

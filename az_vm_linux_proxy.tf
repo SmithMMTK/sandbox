@@ -23,7 +23,7 @@ resource "azurerm_network_interface" "my_proxy_nic" {
 
   ip_configuration {
     name                          = "my_nic_proxy_configuration"
-    subnet_id                     = azurerm_subnet.jumphost.id
+    subnet_id                     = azurerm_subnet.proxysubnet.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.my_proxy_public_ip.id
   }

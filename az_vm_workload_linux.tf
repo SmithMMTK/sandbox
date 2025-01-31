@@ -42,7 +42,7 @@ resource "azurerm_network_security_group" "my_terraform_nsg" {
 
 # Create network interface
 resource "azurerm_network_interface" "my_terraform_nic" {
-  name                = "myNIC"
+  name                = "myNIC_Workload"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 
@@ -81,7 +81,7 @@ resource "azurerm_storage_account" "my_storage_account" {
 
 # Create virtual machine
 resource "azurerm_linux_virtual_machine" "my_terraform_vm" {
-  name                  = "ubuntuVM"
+  name                  = "workload"
   location              = azurerm_resource_group.rg.location
   resource_group_name   = azurerm_resource_group.rg.name
   network_interface_ids = [azurerm_network_interface.my_terraform_nic.id]
@@ -100,7 +100,7 @@ resource "azurerm_linux_virtual_machine" "my_terraform_vm" {
     version   = "latest"
   }
 
-  computer_name  = "ubuntuVM"
+  computer_name  = "workload"
   admin_username = "azureuser"
 
   admin_ssh_key {

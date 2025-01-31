@@ -41,7 +41,7 @@ variable "firewall_subnet_address_prefix" {
 
 variable "aks_address_prefix" {
   type        = string
-  default     = "10.0.10.0/24"
+  default     = "10.0.5.0/24"
   description = "The address prefix to use for the subnet."
   
 }
@@ -58,6 +58,12 @@ variable "privateendpoint_address_prefix" {
 variable "bastion_address_prefix" {
   type        = string
   default     = "10.0.4.0/24"
+  
+}
+
+variable "proxy_address_prefix" {
+  type        = string
+  default     = "10.0.10.0/24"
   
 }
 
@@ -114,5 +120,13 @@ resource "azurerm_subnet" "bastionsubnet" {
     resource_group_name = azurerm_resource_group.rg.name
     virtual_network_name = azurerm_virtual_network.vnet.name
     address_prefixes = [var.bastion_address_prefix]
+  
+}
+
+resource "azurerm_subnet" "proxysubnet" {
+    name = "proxy_subnet"
+    resource_group_name = azurerm_resource_group.rg.name
+    virtual_network_name = azurerm_virtual_network.vnet.name
+    address_prefixes = [var.proxy_address_prefix]
   
 }

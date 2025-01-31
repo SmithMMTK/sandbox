@@ -22,6 +22,13 @@ resource "azurerm_ip_group" "workload_ip_group" {
   cidrs               = ["10.0.1.0/24"]
 }
 
+resource "azurerm_ip_group" "proxy_ip_group" {
+  name                = "proxy-ip-group"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+  cidrs               = ["10.0.10.0/24"]
+}
+
 resource "azurerm_firewall_policy_rule_collection_group" "net_policy_rule_collection_group" {
   name               = "DefaultNetworkRuleCollectionGroup"
   firewall_policy_id = azurerm_firewall_policy.azfw_policy.id
@@ -38,6 +45,14 @@ resource "azurerm_firewall_policy_rule_collection_group" "net_policy_rule_collec
       destination_ports     = ["123"]
       destination_addresses = ["132.86.101.172"]
     }
+
+    rule {
+      name                  = "proxy_all"
+      protocols             = ["UDP"]
+      source_ip_groups      = [azurerm_ip_group.proxy_ip_group.id]
+      destination_ports     = ["*"]
+      destination_addresses = ["*"]
+    }
   }
 
 }
@@ -53,7 +68,7 @@ resource "azurerm_firewall_policy_rule_collection_group" "app_policy_rule_collec
     priority = 500
 
     rule {
-      name        = "Global Rule"
+      name        = "Workload Rule"
       description = "Allow access to target destination"
       protocols {
         type = "Https"
@@ -63,9 +78,54 @@ resource "azurerm_firewall_policy_rule_collection_group" "app_policy_rule_collec
         type = "Http"
         port = 80
       }
-      destination_fqdns = ["*.google.com","ifconfig.me"]
+      destination_fqdns = ["ifconfig.me","*.ubuntu.com"]
       terminate_tls     = false
       source_ip_groups  = [azurerm_ip_group.workload_ip_group.id]
+    }
+
+    rule {
+      name       = "Azure Arc-Enabled Servers"
+      description = "Allow access to target destination"
+      protocols {
+        type = "Https"
+        port = 443
+      }
+      destination_fqdns = [
+          "*.microsoft.com",
+          "download.microsoft.com",
+          "packages.microsoft.com",
+          "login.microsoftonline.com",
+          "*.login.microsoft.com",
+          "pas.windows.net",
+          "management.azure.com",
+          "*.his.arc.azure.com",
+          "*.guestconfiguration.azure.com",
+          "guestnotificationservice.azure.com",
+          "*.guestnotificationservice.azure.com",
+          "*.servicebus.windows.net",
+          "*.waconazure.com",
+          "*.blob.core.windows.net",
+          "dc.services.visualstudio.com",
+          "*.southeastasia.arcdataservices.com"
+      ]
+      terminate_tls     = false
+      source_ip_groups  = [azurerm_ip_group.workload_ip_group.id] 
+    }
+
+    rule {
+      name        = "Proxy Rule"
+      description = "Allow access to target destination"
+      protocols {
+        type = "Https"
+        port = 443
+      }
+      protocols {
+        type = "Http"
+        port = 80
+      }
+      destination_fqdns = ["*"]
+      terminate_tls     = false
+      source_ip_groups  = [azurerm_ip_group.proxy_ip_group.id]
     }
   }
 

@@ -16,3 +16,4 @@ New-NetFirewallRule -Name BlockAzureIMDS -DisplayName "Block access to Azure IMD
 
 
 ```
+

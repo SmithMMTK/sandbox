@@ -6,5 +6,3 @@ ssh -i /tmp/private_key.pem azureuser@"$SSH_PUBLIC_IP"
 
 rm -f /tmp/private_key.pem
 
-# export SSH_PRIVATE_KEY="$(terraform output -raw SSH_PRIVATE_KEY)"
-# printf "%s" "$SSH_PRIVATE_KEY" | pbcopy
