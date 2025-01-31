@@ -111,6 +111,22 @@ resource "azurerm_linux_virtual_machine" "my_terraform_vm" {
   boot_diagnostics {
     storage_account_uri = azurerm_storage_account.my_storage_account.primary_blob_endpoint
   }
+
+
+}
+
+  resource "azurerm_virtual_machine_extension" "workload_custom_script" {
+    name                = "workload_custom_script"
+    virtual_machine_id  = azurerm_linux_virtual_machine.my_terraform_vm.id
+    publisher           = "Microsoft.Azure.Extensions"
+    type                = "CustomScript"
+    type_handler_version = "2.1"
+
+    settings = jsonencode({
+      "fileUris": ["https://raw.githubusercontent.com/SmithMMTK/terraform/refs/heads/main/scripts/workload_scripts.sh"],
+      "commandToExecute": "sh workload_scripts.sh"
+    })
+
 }
 
 # Output the IP address of the VM
