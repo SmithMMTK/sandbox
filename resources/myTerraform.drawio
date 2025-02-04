@@ -537,7 +537,7 @@
     </mxGraphModel>
   </diagram>
   <diagram name="Arc-enabled server network flows Detail Flow" id="_FuF_BBXAo5Vehcnebwj">
-    <mxGraphModel dx="1876" dy="696" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1628" dy="595" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="VKPPPFCggN5A-cHkEF9J-0" />
         <mxCell id="VKPPPFCggN5A-cHkEF9J-1" parent="VKPPPFCggN5A-cHkEF9J-0" />
@@ -978,7 +978,7 @@
         <mxCell id="Gl4c2rf7bp--JgWpp4fb-22" value="Private&lt;br&gt;Endpoint" style="rhombus;whiteSpace=wrap;html=1;fontSize=7;" parent="VKPPPFCggN5A-cHkEF9J-1" vertex="1">
           <mxGeometry x="630" y="299.5" width="60" height="41" as="geometry" />
         </mxCell>
-        <mxCell id="Gl4c2rf7bp--JgWpp4fb-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#f8cecc;strokeColor=#b85450;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="VKPPPFCggN5A-cHkEF9J-1" source="Gl4c2rf7bp--JgWpp4fb-22" edge="1">
+        <mxCell id="Gl4c2rf7bp--JgWpp4fb-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#f8cecc;strokeColor=#b85450;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="VKPPPFCggN5A-cHkEF9J-1" source="Gl4c2rf7bp--JgWpp4fb-22" edge="1" target="VKPPPFCggN5A-cHkEF9J-24">
           <mxGeometry relative="1" as="geometry">
             <Array as="points" />
             <mxPoint x="348" y="360.5" as="sourcePoint" />
