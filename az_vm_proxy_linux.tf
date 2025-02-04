@@ -101,7 +101,7 @@ resource "azurerm_linux_virtual_machine" "my_proxy_vm" {
       "fileUris": ["https://raw.githubusercontent.com/SmithMMTK/terraform/refs/heads/main/scripts/proxy_scripts.sh"],
       "commandToExecute": "sh proxy_scripts.sh"
     })
-
+ 
 }
 
 # Output the IP address of the VM
