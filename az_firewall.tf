@@ -124,7 +124,15 @@ resource "azurerm_firewall_policy_rule_collection_group" "app_policy_rule_collec
           "*.waconazure.com",
           "*.blob.core.windows.net",
           "dc.services.visualstudio.com",
-          "*.southeastasia.arcdataservices.com"
+          "*.southeastasia.arcdataservices.com",
+          "aadcdn.msauth.net",
+          "aadcdn.msftauth.net",
+          "*.arcdataservices.com",
+          "github.com",
+          "*.githubusercontent.com",
+          "*.monitor.azure.com",
+          "*.opinsights.azure.com"
+    
       ]
       terminate_tls     = false
       source_ip_groups  = [azurerm_ip_group.workload_ip_group.id] 
