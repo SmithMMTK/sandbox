@@ -131,7 +131,8 @@ resource "azurerm_firewall_policy_rule_collection_group" "app_policy_rule_collec
           "github.com",
           "*.githubusercontent.com",
           "*.monitor.azure.com",
-          "*.opinsights.azure.com"
+          "*.opinsights.azure.com",
+          "*.azure-automation.net"
     
       ]
       terminate_tls     = false
