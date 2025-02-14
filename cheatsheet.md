@@ -59,4 +59,7 @@ az monitor diagnostic-settings categories list --resource "/subscriptions/d120e7
 
 az monitor diagnostic-settings categories list  --resource "/subscriptions/d120e7d7-41e4-4ea7-b07d-ea9c11db2118/resourceGroups/rg-sought-pheasant/providers/Microsoft.Network/azureFirewalls/azfw"
 
+
+az monitor diagnostic-settings categories list  --resource "/subscriptions/d120e7d7-41e4-4ea7-b07d-ea9c11db2118/resourceGroups/rg-gorgeous-colt/providers/Microsoft.Web/sites/linuxwebapp-63246"
+
 ```
