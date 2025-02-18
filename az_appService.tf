@@ -89,3 +89,8 @@ resource "azurerm_monitor_diagnostic_setting" "appsvclinux_diagnostic" {
 output "WEBAPPURL" {
   value = "https://${azurerm_linux_web_app.linuxwebapp.name}.azurewebsites.net"
 }
+
+
+output "POSTDEPLOYMENT" {
+  value = "Post deployment required for Node.js apps. Enable SCM Basic Authentication in Site Configuration from 'OFF' to 'ON' and 'Sync' the deployment in Deployment Center. This is a one-time manual step to be done after the deployment. Check progress in Log Stream."
+}
