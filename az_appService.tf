@@ -32,13 +32,14 @@ resource "azurerm_linux_web_app" "linuxwebapp" {
       
     }
 
+
 }
 
 }
 #  Deploy code from a public GitHub repo
 resource "azurerm_app_service_source_control" "sourcecontrol" {
   app_id             = azurerm_linux_web_app.linuxwebapp.id
-  repo_url           = "https://github.com/SmithMMTK/nodejs-docs-hello-world-SNAT"
+  repo_url           = "https://github.com/SmithMMTK/nodejs-helloWorld"
   branch             = "main"
   use_manual_integration = true
   use_mercurial      = false
@@ -50,6 +51,9 @@ resource "azurerm_app_service_source_control" "sourcecontrol" {
   ## Check progress in Log Stream
 
 }
+
+
+
 
 resource "azurerm_monitor_diagnostic_setting" "appsvclinux_diagnostic" {
   name               = "appsvclinux_diagnostic_setting_name"
