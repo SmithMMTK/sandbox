@@ -16,6 +16,7 @@ resource "azurerm_kubernetes_cluster" "k8s" {
         node_count = "3"
         vnet_subnet_id      = azurerm_subnet.AKSSubnet.id
     }
+
     linux_profile {
         admin_username = "azureuser"
 
@@ -38,6 +39,14 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     }
         
 
+}
+
+resource "azurerm_role_assignment" "acrpull" {
+  principal_id = azurerm_kubernetes_cluster.k8s.kubelet_identity[0].object_id
+  role_definition_name = "AcrPull"
+  scope = azurerm_container_registry.acr.id
+  skip_service_principal_aad_check = true
+  
 }
 
 resource "azurerm_monitor_diagnostic_setting" "aks_diagnostic" {
@@ -89,6 +98,20 @@ enabled_log {
   enabled_log {
     category = "csi-snapshot-controller"
   }
+}
+
+resource "azurerm_container_registry" "acr" {
+  
+  # Assign name from random_pet resource but remove "-" from the name use replace function
+  name = replace("acr-${random_pet.rg_name.id}", "-", "")
+  resource_group_name = azurerm_resource_group.rg.name
+  location = azurerm_resource_group.rg.location
+  sku = "Premium"
+  admin_enabled = false
+}
+
+output "azurerm_container_registry_name" {
+  value = azurerm_container_registry.acr.name
 }
 
 output "kubernetes_cluster_name" {
