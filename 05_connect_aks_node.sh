@@ -1,0 +1,1 @@
+kubectl run -it --rm aks-nodejs --image=node:20 -- /bin/bash

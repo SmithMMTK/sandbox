@@ -15,13 +15,13 @@ kubectl get nodes
 
 
 ### Connect ACR
-ACR_NAME=$(terraform output -raw azurerm_container_registry_name)
-az acr login --name $ACR_NAME
+#ACR_NAME=$(terraform output -raw azurerm_container_registry_name)
+#az acr login --name $ACR_NAME
 
 ## Test Push Image
-docker pull mcr.microsoft.com/hello-world
-docker tag mcr.microsoft.com/hello-world $ACR_NAME.azurecr.io/hello-world
-docker push $ACR_NAME.azurecr.io/hello-world
+#docker pull mcr.microsoft.com/hello-world
+#docker tag mcr.microsoft.com/hello-world $ACR_NAME.azurecr.io/hello-world
+#docker push $ACR_NAME.azurecr.io/hello-world
 
 
 ### Test AKS application deployment
