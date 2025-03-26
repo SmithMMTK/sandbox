@@ -14,7 +14,7 @@ resource "azurerm_storage_container" "container" {
 }
 
 resource "azurerm_storage_blob" "textfile" {
-    name                   = "myfile.txt"
+    name                   = "textfile.txt"
     storage_account_name   = azurerm_storage_account.blob.name
     storage_container_name = azurerm_storage_container.container.name
     type                   = "Block"
