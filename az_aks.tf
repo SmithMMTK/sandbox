@@ -1,4 +1,5 @@
 
+
 resource "azurerm_kubernetes_cluster" "k8s" {
     location = azurerm_resource_group.rg.location
     name = "aks-${random_pet.rg_name.id}" 
@@ -7,8 +8,8 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     dns_prefix = "aks-${random_pet.rg_name.id}"
 
     identity {
-    type = "SystemAssigned"
-    }
+      type = "SystemAssigned"
+  }
 
     default_node_pool {
         name       = "agentpool"
