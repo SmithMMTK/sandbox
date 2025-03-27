@@ -1,3 +1,6 @@
+# 
+# https://learn.microsoft.com/en-us/azure/aks/workload-identity-overview?tabs=dotnet
+# 
 
 export RANDOM_ID="$(openssl rand -hex 3)"
 export RESOURCE_GROUP=$(terraform output -raw RESOURCE_GROUP_NAME)
