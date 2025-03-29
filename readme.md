@@ -1,5 +1,5 @@
 
-Select scenario from Branch
+Select Branch for individual scenario e.g. User Managed Identity
 
 ```bash
 ### Get Private Key from terraform output
