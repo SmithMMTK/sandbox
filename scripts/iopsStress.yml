@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: iops-burst
+spec:
+  containers:
+    - name: stress-ng
+      image: polinux/stress-ng
+      command: ["stress-ng"]
+      args:
+        - "--hdd"
+        - "16"
+        - "--hdd-bytes"
+        - "20G"
+        - "--hdd-write-size"
+        - "1K"               # Use smaller writes to increase IOPS
+        - "--metrics-brief"
+      resources:
+        requests:
+          cpu: "500m"
+        limits:
+          cpu: "1"
+      volumeMounts:
+        - name: stress-vol
+          mountPath: /tmp/stress
+      workingDir: /tmp/stress
+  volumes:
+    - name: stress-vol
+      emptyDir:
+        medium: ""           # Node SSD-backed ephemeral disk
+  restartPolicy: Never

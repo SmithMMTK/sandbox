@@ -25,5 +25,5 @@ kubectl get nodes
 
 
 ### Test AKS application deployment
-kubectl apply -f aks-quickstart.yaml
+#kubectl apply -f aks-quickstart.yaml
 kubectl get pods
