@@ -13,8 +13,8 @@ resource "azurerm_kubernetes_cluster" "k8s" {
 
     default_node_pool {
         name       = "agentpool"
-        vm_size    = "Standard_D2_v2"
-        node_count = "3"
+        vm_size    = "Standard_D32ds_v6"
+        node_count = "2"
         vnet_subnet_id      = azurerm_subnet.AKSSubnet.id
     }
 
